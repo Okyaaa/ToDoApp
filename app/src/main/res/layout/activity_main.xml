@@ -6,13 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="380dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="To Do List"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="23dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_baseline_more_horiz_24" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="352dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Today"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You have 2 task today"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="332dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="332dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="36dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
