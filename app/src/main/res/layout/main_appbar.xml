@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
+    android:paddingTop="1dp"
     android:elevation="10dp"
-
+    android:id="@+id/mainAppBar"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:background="@color/white"
+    tools:context=".MainActivity"
     >
+
+    <android.widget.ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:background="@color/white"
+        />
 
 </androidx.appcompat.widget.Toolbar>
