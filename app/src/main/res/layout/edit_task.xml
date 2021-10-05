@@ -4,214 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AddTaskActivity"
+    >
+
+    <TextView
+        android:id="@+id/newTittle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="150dp"
+        android:text="@string/newTittle"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/titleUpdate"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/titleHint"
+        android:background="@drawable/custom_input"
+        android:paddingStart="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newTittle2" />
+
+    <TextView
+        android:id="@+id/newDescription2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/newDescription"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleUpdate" />
+
+    <EditText
+        android:id="@+id/descriptionUpdate"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/descriptionHint"
+        android:background="@drawable/custom_input"
+        android:paddingStart="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newDescription2" />
+
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="380dp"
-        android:layout_height="37dp"
+        android:layout_width="332dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/descriptionUpdate">
 
-        <TextView
-            android:id="@+id/textView2"
+        <Button
+            android:id="@+id/updateTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="To Do List"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="23dp"
-            android:layout_height="14dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_baseline_more_horiz_24" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="352dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Today"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="You have 2 task today"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="352dp"
-        android:layout_height="455dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <androidx.cardview.widget.CardView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardBackgroundColor="@color/yellow"
-            >
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title"
-                    android:textSize="18sp"
-                    />
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/title"
-                    android:text="@string/description"
-                    android:paddingTop="8dp"
-                    android:textSize="14sp"
-                    android:paddingBottom="8dp"
-                    />
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardBackgroundColor="@color/yellow"
-            >
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title"
-                    android:textSize="18sp"
-                    />
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/title"
-                    android:text="@string/description"
-                    android:paddingTop="8dp"
-                    android:textSize="14sp"
-                    android:paddingBottom="8dp"
-                    />
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardBackgroundColor="@color/yellow"
-            >
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title"
-                    android:textSize="18sp"
-                    />
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/title"
-                    android:text="@string/description"
-                    android:paddingTop="8dp"
-                    android:textSize="14sp"
-                    android:paddingBottom="8dp"
-                    />
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-        <!--        <ListView-->
-        <!--            android:id="@+id/id_listView"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent" />-->
-
-
+            android:text="Update" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="332dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="36dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionUpdate">
 
         <Button
-            android:id="@+id/addTaskButton"
+            android:id="@+id/deleteTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Edit task"
-            />
+            android:text="Delete" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

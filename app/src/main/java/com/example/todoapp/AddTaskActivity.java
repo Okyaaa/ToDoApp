@@ -2,40 +2,43 @@ package com.example.todoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.todoapp.Database.DatabaseHelper;
 
 public class AddTaskActivity extends AppCompatActivity {
 
-    List<String> toDoList;
-    ArrayAdapter<String> arrayAdapter;
-    ListView listView;
-    EditText editText;
+    EditText titleInput;
+    EditText descriptionInput;
+    Button saveButton;
+    Activity activity;
+    Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_task);
+        setContentView(R.layout.add_task);
 
-//        toDoList = new ArrayList<>();
-//        arrayAdapter = new ArrayAdapter<>(this, R.layout.task_layout, toDoList);
-//        listView = findViewById(R.id.id_listView);
-//
-//        listView.setAdapter(arrayAdapter);
-//
-//        editText = findViewById(R.id.editTittleText);
-    }
-    public void saveTask(View view){
-        toDoList.add(editText.getText().toString());
-        arrayAdapter.notifyDataSetChanged();
-
-        editText.setText("");
+        titleInput = findViewById(R.id.titleInput);
+        descriptionInput = findViewById(R.id.descriptionInput);
+        saveButton = findViewById(R.id.saveTask);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseHelper myDB = new DatabaseHelper(AddTaskActivity.this);
+                myDB.addTask(titleInput.getText().toString().trim(),
+                        descriptionInput.getText().toString().trim()
+                );
+                Intent intent = new Intent(AddTaskActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

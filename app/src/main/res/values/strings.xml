@@ -1,11 +1,27 @@
 <resources>
     <string name="app_name">To and Do</string>
-    <string name="title">Makan pagi</string>
-    <string name="description">Makan pagi dengan semangat pagi</string>
     <string name="newTittle">Tittle</string>
     <string name="newDescription">Description</string>
     <string name="newDate">Date</string>
     <string name="titleHint">Your tittle</string>
     <string name="descriptionHint">Describe activity</string>
     <string name="dateHint">Pick date</string>
+
+    <string-array name="title">
+        <item>Makan pagi</item>
+        <item>Makan pagi</item>
+        <item>Makan pagi</item>
+        <item>Makan pagi</item>
+        <item>Makan pagi</item>
+        <item>Makan pagi</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>Makan pagi dengan semangat pagi</item>
+        <item>Makan pagi dengan semangat pagi</item>
+        <item>Makan pagi dengan semangat pagi</item>
+        <item>Makan pagi dengan semangat pagi</item>
+        <item>Makan pagi dengan semangat pagi</item>
+        <item>Makan pagi dengan semangat pagi</item>
+    </string-array>
 </resources>

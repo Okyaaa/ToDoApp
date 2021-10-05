@@ -11,11 +11,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="380dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="346dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="70dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="48dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,17 +42,19 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="352dp"
-        android:layout_height="27dp"
+        android:layout_width="354dp"
+        android:layout_height="26dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="45dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="217dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Today"
@@ -63,6 +65,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="You have 2 task today"
             android:textColor="@color/black"
             android:textSize="12sp" />
@@ -72,129 +75,20 @@
     <LinearLayout
         android:layout_width="352dp"
         android:layout_height="455dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-        <androidx.cardview.widget.CardView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_height="wrap_content"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardBackgroundColor="@color/yellow"
-            >
+            android:layout_height="match_parent"
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title"
-                    android:textSize="18sp"
-                    />
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/title"
-                    android:text="@string/description"
-                    android:paddingTop="8dp"
-                    android:textSize="14sp"
-                    android:paddingBottom="8dp"
-                    />
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardBackgroundColor="@color/yellow"
-            >
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title"
-                    android:textSize="18sp"
-                    />
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/title"
-                    android:text="@string/description"
-                    android:paddingTop="8dp"
-                    android:textSize="14sp"
-                    android:paddingBottom="8dp"
-                    />
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginVertical="8dp"
-            app:cardBackgroundColor="@color/yellow"
-            >
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title"
-                    android:textSize="18sp"
-                    />
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/title"
-                    android:text="@string/description"
-                    android:paddingTop="8dp"
-                    android:textSize="14sp"
-                    android:paddingBottom="8dp"
-                    />
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-<!--        <ListView-->
-<!--            android:id="@+id/id_listView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent" />-->
-
-
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -210,7 +104,7 @@
 
         <Button
             android:id="@+id/addTaskButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Add task"
