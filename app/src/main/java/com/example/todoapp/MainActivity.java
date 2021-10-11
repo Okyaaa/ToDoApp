@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         storeDataInArrays();
 
-        mainAdapter = new MainAdapter(MainActivity.this, this, db_id, db_title, db_description);
+        mainAdapter = new MainAdapter(MainActivity.this, this, db_id, db_title,
+                db_description);
         recyclerView.setAdapter(mainAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
