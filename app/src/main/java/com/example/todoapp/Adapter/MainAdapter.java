@@ -13,7 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todoapp.R;
-import com.example.todoapp.UpdateActivity;
+import com.example.todoapp.Activity.UpdateActivity;
 
 import java.util.ArrayList;
 

@@ -1,38 +1,55 @@
-package com.example.todoapp;
+package com.example.todoapp.Activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.todoapp.Adapter.MainAdapter;
 import com.example.todoapp.Database.DatabaseHelper;
+import com.example.todoapp.R;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     Button addTaskButton;
-    private Toolbar toolbar;
+
+    private Button btnLogout;
+    private Session session;
 
     RecyclerView recyclerView;
     DatabaseHelper myDB;
     ArrayList<String> db_id, db_title, db_description;
     MainAdapter mainAdapter;
+    TextView textView;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         toolbar = findViewById(R.id.mainAppBar);
         setContentView(R.layout.activity_main);
+
+        session = new Session(this);
+        if(!session.loggedin()){
+            logout();
+        }
+        btnLogout = (Button)findViewById(R.id.logout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
 
         recyclerView = findViewById(R.id.recyclerView);
         addTaskButton = findViewById(R.id.addTaskButton);
@@ -53,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
         mainAdapter = new MainAdapter(MainActivity.this, this, db_id, db_title,
                 db_description);
         recyclerView.setAdapter(mainAdapter);
+
+        int count = mainAdapter.getItemCount();
+        textView = findViewById(R.id.textView4);
+        textView.setText("You have " + count + " today");
+
+
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
     }
@@ -76,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
                 db_description.add(cursor.getString(2));
             }
         }
+    }
+
+    private void logout(){
+        session.setLoggedin(false);
+        finish();
+        startActivity(new Intent(MainActivity.this,LoginActivity.class));
     }
 
 }

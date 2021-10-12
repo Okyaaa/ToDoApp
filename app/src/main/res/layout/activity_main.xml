@@ -7,50 +7,20 @@
     tools:context=".MainActivity">
 
     <include
-        layout="@layout/main_appbar"/>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="346dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="48dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="To Do List"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="23dp"
-            android:layout_height="14dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_baseline_more_horiz_24" />
-
-    </LinearLayout>
+        android:id="@+id/include"
+        layout="@layout/main_appbar" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="354dp"
         android:layout_height="26dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="45dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/include">
 
         <TextView
             android:id="@+id/textView3"
@@ -66,13 +36,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="You have 2 task today"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="12sp" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="352dp"
         android:layout_height="455dp"
         android:layout_marginStart="45dp"
@@ -92,23 +63,48 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="332dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="36dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.13999999">
 
         <Button
             android:id="@+id/addTaskButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add task"
-            />
+            android:text="Add task" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="332dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/red"
+            android:text="Logout" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

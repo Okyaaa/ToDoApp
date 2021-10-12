@@ -1,4 +1,4 @@
-package com.example.todoapp;
+package com.example.todoapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,14 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.todoapp.Database.DatabaseHelper;
+import com.example.todoapp.R;
 
 public class AddTaskActivity extends AppCompatActivity {
 
     EditText titleInput;
     EditText descriptionInput;
     Button saveButton;
-    Activity activity;
-    Context context;
 
 
     @Override
