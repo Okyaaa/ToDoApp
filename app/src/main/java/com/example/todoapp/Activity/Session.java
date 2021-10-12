@@ -10,7 +10,7 @@ public class Session {
 
     public Session(Context ctx){
         this.ctx = ctx;
-        prefs = ctx.getSharedPreferences("myapp", Context.MODE_PRIVATE);
+        prefs = ctx.getSharedPreferences("TodoApp", Context.MODE_PRIVATE);
         editor = prefs.edit();
     }
 

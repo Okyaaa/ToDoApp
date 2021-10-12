@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.todoapp.Database.DatabaseHandler;
+import com.example.todoapp.Database.DatabaseHelper;
 import com.example.todoapp.R;
-
-import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +14,8 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     private Button login, register;
-    private EditText etEmail, etPass;
-    private DatabaseHandler db;
+    private EditText Email, Password;
+    private DatabaseHelper db;
     private Session session;
 
     @Override
@@ -25,12 +23,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        db = new DatabaseHandler(this);
+        db = new DatabaseHelper(this);
         session = new Session(this);
         login = (Button)findViewById(R.id.btnLogin);
         register = (Button)findViewById(R.id.btnReg);
-        etEmail = (EditText)findViewById(R.id.etEmail);
-        etPass = (EditText)findViewById(R.id.etPass);
+        Email = (EditText)findViewById(R.id.etEmail);
+        Password = (EditText)findViewById(R.id.etPass);
 
         if(session.loggedin()){
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
@@ -39,8 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(){
-        String email = etEmail.getText().toString();
-        String pass = etPass.getText().toString();
+        String email = Email.getText().toString();
+        String pass = Password.getText().toString();
 
         if(db.getUser(email,pass)){
             session.setLoggedin(true);

@@ -2,13 +2,14 @@ package com.example.todoapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.example.todoapp.Database.DatabaseHandler;
+import com.example.todoapp.Database.DatabaseHelper;
 import com.example.todoapp.R;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,14 +20,14 @@ public class RegisterActivity extends AppCompatActivity {
     private Button reg;
     private TextView tvLogin;
     private EditText etEmail, etPass;
-    private DatabaseHandler db;
+    private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        db = new DatabaseHandler(this);
+        db = new DatabaseHelper(this);
         reg = (Button)findViewById(R.id.btnReg);
         tvLogin = (TextView)findViewById(R.id.tvLogin);
         etEmail = (EditText)findViewById(R.id.etEmail);
@@ -43,14 +44,37 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void register(){
         String email = etEmail.getText().toString();
-        String pass = etPass.getText().toString();
-        if(email.isEmpty() && pass.isEmpty()){
+        String password = etPass.getText().toString();
+
+        db = new DatabaseHelper(RegisterActivity.this);
+        SQLiteDatabase sqlDB = db.getWritableDatabase();
+
+        Cursor cursor = sqlDB.rawQuery("SELECT  * FROM users", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                if (cursor.getString(1).equals(email)) {
+                    Toast.makeText(this, "User Already Exist, Please Login",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            } while (cursor.moveToNext());
+        }
+        if (email.isEmpty() && password.isEmpty()) {
             displayToast("Username/password field empty");
-        }else{
-            db.addUser(email,pass);
+        } else {
+            db.addUser(email, password);
             displayToast("User registered");
             finish();
         }
+
+//        if(email.isEmpty() && pass.isEmpty()){
+//            displayToast("Username/password field empty");
+//        }else{
+//            db.addUser(email,pass);
+//            displayToast("User registered");
+//            finish();
+//        }
     }
 
     private void displayToast(String message){
